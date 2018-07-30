@@ -1,6 +1,9 @@
 package com.fw.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class BaseEmp implements Serializable {
 
@@ -9,6 +12,10 @@ public class BaseEmp implements Serializable {
 	private String empName;
 	private String loginName;
 	private String pswd;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	//@JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
+	private Date createDate;
 
 	public Long getEmpId() {
 		return empId;
@@ -40,6 +47,14 @@ public class BaseEmp implements Serializable {
 
 	public void setPswd(String pswd) {
 		this.pswd = pswd;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 
 	@Override

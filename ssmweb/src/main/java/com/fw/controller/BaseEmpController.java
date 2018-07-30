@@ -19,11 +19,18 @@ public class BaseEmpController {
 	
 	@Autowired
 	private BaseEmpService baseEmpService;
-      
+    
     @RequestMapping(value="/baseEmp/getById.do")  
     @ResponseBody
     public BaseEmp getById(Long id, HttpServletResponse response) throws Exception{ 
     	logger.info("查询员工");
         return baseEmpService.getById(id);
+    }  
+    
+    @RequestMapping(value="/baseEmp/list.do")  
+    @ResponseBody
+    public String list(BaseEmp baseEmp, HttpServletResponse response) throws Exception{ 
+    	logger.info("查询员工列表");
+        return "1";
     }  
 }  
