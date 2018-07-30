@@ -15,7 +15,6 @@ public class BaseEmpServiceImpl implements BaseEmpService{
 
 	@Override
 	public BaseEmp getById(Long id) throws Exception {
-		System.out.println("--------------------");
 		return this.baseEmpMapper.getById(id);
 	}
 	

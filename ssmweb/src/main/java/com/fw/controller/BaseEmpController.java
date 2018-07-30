@@ -1,6 +1,8 @@
 package com.fw.controller;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,13 +15,15 @@ import com.fw.service.BaseEmpService;
 @Controller  
 public class BaseEmpController {  
 	
+	private Logger logger = LoggerFactory.getLogger(BaseEmpController.class);
+	
 	@Autowired
 	private BaseEmpService baseEmpService;
       
     @RequestMapping(value="/baseEmp/getById.do")  
     @ResponseBody
     public BaseEmp getById(Long id, HttpServletResponse response) throws Exception{ 
-    	System.out.println("--------------------");
+    	logger.info("查询员工");
         return baseEmpService.getById(id);
     }  
 }  
