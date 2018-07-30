@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fw.mapper.BaseEmpMapper">
+	
+	<sql id="paginationStart">
+		<![CDATA[
+               select * from (
+          ]]>
+	</sql>
+
+	<sql id="paginationEnd">
+		<![CDATA[
+                         ) temp_t limit #{start},#{limit}
+                 ]]>
+	</sql>
+	
+	<!-- 分页查询  -->
+	<select id="list" parameterType="string" resultType="baseEmp">
+		SELECT empId,empName,loginName,pswd FROM base_emp WHERE empName like concat('%',empName,'%')
+	</select>
+	
+</mapper>

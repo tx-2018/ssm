@@ -1,6 +1,7 @@
 package com.fw.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,11 @@ public class BaseEmpServiceImpl implements BaseEmpService{
 		BaseEmp baseEmp = this.baseEmpMapper.getById(id);
 		baseEmp.setCreateDate(new Date());
 		return baseEmp;
+	}
+
+	@Override
+	public List<BaseEmp> list(String empName) throws Exception {
+		return baseEmpMapper.list(empName);
 	}
 	
 	
