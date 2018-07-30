@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.fw.entity.BaseEmp;
@@ -16,9 +17,14 @@ public class BaseEmpServiceImpl implements BaseEmpService{
 	@Autowired
 	private BaseEmpMapper baseEmpMapper;
 
+	@Cacheable(value="user",key="'user'+#id.toString()")
 	@Override
 	public BaseEmp getById(Long id) throws Exception {
-		BaseEmp baseEmp = this.baseEmpMapper.getById(id);
+//		BaseEmp baseEmp = this.baseEmpMapper.getById(id);
+		System.out.println("1----------------");
+		BaseEmp baseEmp = new BaseEmp();
+		baseEmp.setEmpId(1l);
+		baseEmp.setEmpName("test");
 		baseEmp.setCreateDate(new Date());
 		return baseEmp;
 	}

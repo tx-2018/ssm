@@ -13,7 +13,7 @@ public class BaseEmpServiceTest extends BaseJunit4Test {
     @Test   
     public void getById() {
         try {
-			System.out.println(baseEmpService.getById(1l));
+        	baseEmpService.getById(4l);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
