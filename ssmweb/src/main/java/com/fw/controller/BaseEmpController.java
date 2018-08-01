@@ -1,5 +1,6 @@
 package com.fw.controller;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +30,7 @@ public class BaseEmpController {
     
     @RequestMapping(value="/baseEmp/list.do")  
     @ResponseBody
-    public String list(BaseEmp baseEmp, HttpServletResponse response) throws Exception{ 
+    public String list( @Valid BaseEmp baseEmp, HttpServletResponse response) throws Exception{ 
     	logger.info("查询员工列表");
         return "1";
     }  

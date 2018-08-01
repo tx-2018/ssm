@@ -3,12 +3,15 @@ package com.fw.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class BaseEmp implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Long empId;
+	@NotNull
 	private String empName;
 	private String loginName;
 	private String pswd;

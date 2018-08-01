@@ -28,4 +28,5 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>  
     </bean>  
    
+   <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/> 
 </beans>  
